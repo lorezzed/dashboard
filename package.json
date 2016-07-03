@@ -1,0 +1,15 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "James Salamon",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "webshot": "^0.18.0"
+  }
+}
