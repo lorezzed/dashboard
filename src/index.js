@@ -1,4 +1,4 @@
-function buildTile(url, interval) {
+function buildTile(url, interval = 60000) {
     if (!url || !interval)
         throw new Error('missing argument', url, interval)
     // DOM Element
@@ -97,7 +97,7 @@ const events = (function(){
 })()
 
 events.subscribe('add', function(obj) {
-    buildTile(obj.url, 60000)
+    buildTile(obj.url)
 })
 
 // buildTile('google.com', 60000)
