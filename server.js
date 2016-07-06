@@ -6,6 +6,28 @@ var webshot = require('webshot')
 ,   passport = require('passport')
 ,   LocalStrategy = require('passport-local').Strategy
 ,   db = require('./db')
+,   FacebookStrategy = require('passport-facebook')
+,   authDetails = require('./authDetails')
+
+// facebook auth
+passport.use(new FacebookStrategy({
+    clientID: authDetails.facebook.clientID
+,   clientSecret: authDetails.facebook.clientSecret
+,   callbackURL: authDetails.facebook.callbackURL
+}, function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({facebookId: profile.id }, function (err, user) {
+        return cb(err, user)
+    })
+}))
+app.get('/auth/facebook', passport.authenticate('facebook'))
+app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }),
+    function (req, res) {
+        // success
+        res.redirect('/')
+    }
+)
+
+
 
 passport.use(new LocalStrategy(function(username, password, cb) {
     db.users.findByUsername(username, function(err, user) {
