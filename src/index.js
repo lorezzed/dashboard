@@ -108,3 +108,17 @@ const mainButton = document.querySelector('#addUrl')
 mainButton.addEventListener('click', () => {
     events.publish('add', {url: mainInput.value})
 })
+
+
+//
+const testInput = document.querySelector('#testInput')
+testInput.value = 'http://www.google.com'
+
+const testButton = document.querySelector('#testButton')
+testButton.addEventListener('click', () => {
+    const url = '/test/' + encodeURIComponent(testInput.value)
+    console.log('getting, ', url)
+    fetch(url, function(a, b, c) {
+        console.log(a, b, c)
+    })
+})

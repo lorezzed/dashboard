@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
     </head>
     <body>
         <div>
             <input id="mainInput" />
             <button id="addUrl">Add Url</button>
             <ul id="mainTiles"></ul>
+
+            <input id="testInput" />
+            <button id="testButton">bla</button>
         </div>
+
+        <div id="testLoad"></div>
+        <script>$("#testLoad").load("http://www.yahoo.com");</script>
+        <!--<script>$("#testLoad").load("http://www.goole.com");</script>-->
+
+        <!--<iframe src="demo-page.html" name="myFrame"></iframe>
+        <p><a href="http://www.tutorialrepublic.com" target="myFrame">Tutorial Republic</a></p>-->
 
         <script src="src/index.js"></script>
     </body>
